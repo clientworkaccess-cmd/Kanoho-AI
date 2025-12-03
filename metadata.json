@@ -1,0 +1,5 @@
+{
+  "name": "Kanoho AI",
+  "description": "A high-performance, Obsidian-styled Knowledge Base Manager powered by Supabase and n8n.",
+  "requestFramePermissions": []
+}
