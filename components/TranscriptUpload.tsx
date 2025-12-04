@@ -92,13 +92,13 @@ const TranscriptUpload: React.FC = () => {
       />
 
       <div className="space-y-1.5">
-        <label className="block text-xs font-medium text-zinc-400 font-display tracking-widest uppercase">Content</label>
+        <label className="block text-xs font-medium text-slate-500 dark:text-zinc-400 font-display tracking-widest uppercase">Content</label>
         <textarea
           required
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={10}
-          className="w-full bg-zinc-900/30 border border-zinc-800 text-zinc-100 px-3 py-2 placeholder-zinc-600 focus:outline-none focus:border-indigo-500 transition-colors font-mono text-xs"
+          className="w-full bg-slate-50 dark:bg-zinc-900/30 border border-slate-200 dark:border-zinc-800 text-slate-900 dark:text-zinc-100 px-3 py-2 placeholder-slate-400 dark:placeholder-zinc-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-500/50 transition-colors font-mono text-xs rounded-lg"
           placeholder="Paste transcript content here..."
         />
       </div>

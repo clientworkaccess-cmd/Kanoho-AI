@@ -3,7 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import FileList from './FileList';
 import Upload from './Upload';
 import CompanyDetails from './CompanyDetails';
-import Integration from './Integration';
+//import Integration from './Integration';
 import Settings from './Settings';
 import { 
   FolderIcon, 
@@ -32,7 +32,7 @@ const Dashboard: React.FC = () => {
       case 'kb': return <FileList />;
       case 'upload': return <Upload />;
       case 'company': return <CompanyDetails />;
-      case 'integrations': return <Integration />;
+     // case 'integrations': return <Integration />;
       case 'settings': return <Settings />;
       default: return <FileList />;
     }
@@ -42,7 +42,7 @@ const Dashboard: React.FC = () => {
     { id: 'kb', label: 'Index', icon: FolderIcon },
     { id: 'upload', label: 'Upload', icon: CloudArrowUpIcon },
     { id: 'company', label: 'Entity', icon: BuildingOfficeIcon },
-    { id: 'integrations', label: 'Connect', icon: CommandLineIcon },
+    //{ id: 'integrations', label: 'Connect', icon: CommandLineIcon },
     { id: 'settings', label: 'System', icon: Cog6ToothIcon },
   ];
 

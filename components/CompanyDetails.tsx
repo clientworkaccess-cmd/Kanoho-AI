@@ -85,8 +85,8 @@ ${formData.overview}
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div>
-        <h2 className="text-2xl font-display font-bold text-white tracking-tight">Company Intelligence</h2>
-        <p className="text-zinc-500 text-sm">Define the core entity data for the AI context.</p>
+        <h2 className="text-2xl font-display font-bold text-slate-900 dark:text-white tracking-tight">Company Intelligence</h2>
+        <p className="text-slate-500 dark:text-zinc-500 text-sm">Define the core entity data for the AI context.</p>
       </div>
 
       <Card>
@@ -129,18 +129,18 @@ ${formData.overview}
           />
           
           <div className="space-y-1.5">
-            <label className="block text-xs font-medium text-zinc-400 font-display tracking-widest uppercase">Business Overview</label>
+            <label className="block text-xs font-medium text-slate-500 dark:text-zinc-400 font-display tracking-widest uppercase">Business Overview</label>
             <textarea
               name="overview"
               value={formData.overview}
               onChange={handleChange}
               rows={6}
-              className="w-full bg-zinc-900/30 border border-zinc-800 text-zinc-100 px-3 py-2 placeholder-zinc-600 focus:outline-none focus:border-indigo-500 transition-colors font-sans text-sm"
+              className="w-full bg-slate-50 dark:bg-zinc-900/30 border border-slate-200 dark:border-zinc-800 text-slate-900 dark:text-zinc-100 px-3 py-2 placeholder-slate-400 dark:placeholder-zinc-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-500/50 transition-colors font-sans text-sm rounded-lg"
               placeholder="Describe the company mission, products, and services..."
             />
           </div>
 
-          <div className="pt-4 border-t border-white/5 flex justify-end">
+          <div className="pt-4 border-t border-slate-100 dark:border-white/5 flex justify-end">
             <Button type="submit" isLoading={loading}>
               Save & Index Profile
             </Button>

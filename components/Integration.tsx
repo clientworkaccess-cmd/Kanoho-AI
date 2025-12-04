@@ -101,19 +101,19 @@ const Integration: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div>
-        <h2 className="text-2xl font-display font-bold text-white tracking-tight">External Nodes</h2>
-        <p className="text-zinc-500 text-sm">Connect third-party data pipelines.</p>
+        <h2 className="text-2xl font-display font-bold text-slate-900 dark:text-white tracking-tight">External Nodes</h2>
+        <p className="text-slate-500 dark:text-zinc-500 text-sm">Connect third-party data pipelines.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* GitHub Card */}
-        <Card className="flex flex-col justify-between h-64 border-t-4 border-t-white">
+        <Card className="flex flex-col justify-between h-64 border-t-4 border-t-slate-900 dark:border-t-white">
           <div>
             <div className="flex items-center justify-between mb-4">
-               <h3 className="text-xl font-bold font-display">GitHub</h3>
-               <div className={`w-2 h-2 rounded-full ${profile?.github_connected ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' : 'bg-zinc-700'}`}></div>
+               <h3 className="text-xl font-bold font-display text-slate-900 dark:text-white">GitHub</h3>
+               <div className={`w-2 h-2 rounded-full ${profile?.github_connected ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' : 'bg-slate-300 dark:bg-zinc-700'}`}></div>
             </div>
-            <p className="text-zinc-400 text-sm">
+            <p className="text-slate-500 dark:text-zinc-400 text-sm">
               Sync repositories, commit history, and documentation directly into the knowledge base.
             </p>
           </div>
@@ -134,10 +134,10 @@ const Integration: React.FC = () => {
         <Card className="flex flex-col justify-between h-64 border-t-4 border-t-indigo-500">
            <div>
             <div className="flex items-center justify-between mb-4">
-               <h3 className="text-xl font-bold font-display">Slack</h3>
-               <div className={`w-2 h-2 rounded-full ${profile?.slack_connected ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' : 'bg-zinc-700'}`}></div>
+               <h3 className="text-xl font-bold font-display text-slate-900 dark:text-white">Slack</h3>
+               <div className={`w-2 h-2 rounded-full ${profile?.slack_connected ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' : 'bg-slate-300 dark:bg-zinc-700'}`}></div>
             </div>
-            <p className="text-zinc-400 text-sm">
+            <p className="text-slate-500 dark:text-zinc-400 text-sm">
               Ingest channel conversations and real-time messaging for context awareness.
             </p>
           </div>
