@@ -68,11 +68,14 @@ const FileList: React.FC = () => {
     try {
       // 1. Trigger Webhook
       try {
+        // Remove extension from file name (e.g., "report.pdf" -> "report")
+        const fileNameNoExt = fileToDelete.name.replace(/\.[^/.]+$/, "");
+
         await fetch(WEBHOOK_DELETE_FILE, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                file_name: fileToDelete.name,
+                file_name: fileNameNoExt,
                 category: fileToDelete.category,
                 email: user.email
             })
