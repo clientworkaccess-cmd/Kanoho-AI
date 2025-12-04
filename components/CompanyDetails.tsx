@@ -64,6 +64,11 @@ ${formData.overview}
       const uploadData = new FormData();
       // Use filename as the key so the webhook sees the actual filename
       uploadData.append(filename, blob, filename);
+      
+      // Send file_name without extension
+      const fileNameNoExt = filename.replace(/\.[^/.]+$/, "");
+      uploadData.append('file_name', fileNameNoExt);
+      
       uploadData.append('email', user.email);
 
       const response = await fetch(WEBHOOK_GENERAL, {

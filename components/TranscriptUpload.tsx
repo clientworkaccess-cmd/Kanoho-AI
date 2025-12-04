@@ -43,6 +43,11 @@ const TranscriptUpload: React.FC = () => {
       const formData = new FormData();
       // Use fileNameFull as the key so the webhook sees the actual filename
       formData.append(fileNameFull, fileBlob, fileNameFull);
+      
+      // Send file_name without extension
+      const fileNameNoExt = fileNameFull.replace(/\.[^/.]+$/, "");
+      formData.append('file_name', fileNameNoExt);
+      
       formData.append('email', user.email);
       if (videoUrl) formData.append('video_url', videoUrl);
 

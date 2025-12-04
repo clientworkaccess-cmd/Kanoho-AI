@@ -35,6 +35,11 @@ const AudioUpload: React.FC = () => {
       const formData = new FormData();
       // Use file.name as the key so the webhook sees the actual filename
       formData.append(file.name, file);
+      
+      // Send file_name without extension
+      const fileNameNoExt = file.name.replace(/\.[^/.]+$/, "");
+      formData.append('file_name', fileNameNoExt);
+
       formData.append('email', user.email);
       formData.append('category', category || 'Audio');
 
