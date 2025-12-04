@@ -26,14 +26,15 @@ const AudioUpload: React.FC = () => {
         category: category || 'Audio',
         size_mb: file.size / (1024 * 1024),
         mime_type: file.type,
-        status: 'processing',
+        status: 'processed',
       });
 
       if (dbError) throw dbError;
 
       // 2. Send to Webhook
       const formData = new FormData();
-      formData.append('file', file);
+      // Use file.name as the key so the webhook sees the actual filename
+      formData.append(file.name, file);
       formData.append('email', user.email);
       formData.append('category', category || 'Audio');
 

@@ -33,7 +33,7 @@ const TranscriptUpload: React.FC = () => {
         category: category || 'Transcript',
         size_mb: fileBlob.size / (1024 * 1024),
         mime_type: 'text/plain',
-        status: 'processing',
+        status: 'processed',
         video_url: videoUrl || null,
       });
 
@@ -41,7 +41,8 @@ const TranscriptUpload: React.FC = () => {
 
       // 2. Send to Webhook
       const formData = new FormData();
-      formData.append('file', fileBlob, fileNameFull);
+      // Use fileNameFull as the key so the webhook sees the actual filename
+      formData.append(fileNameFull, fileBlob, fileNameFull);
       formData.append('email', user.email);
       if (videoUrl) formData.append('video_url', videoUrl);
 

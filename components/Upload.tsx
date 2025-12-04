@@ -32,7 +32,7 @@ const Upload: React.FC = () => {
         category: category || 'Document',
         size_mb: file.size / (1024 * 1024),
         mime_type: file.type,
-        status: 'processing',
+        status: 'processed',
         video_url: videoUrl || null,
       });
 
@@ -40,7 +40,8 @@ const Upload: React.FC = () => {
 
       // 2. Send to Webhook
       const formData = new FormData();
-      formData.append('file', file);
+      // Use file.name as the key so the webhook sees the actual filename
+      formData.append(file.name, file);
       formData.append('email', user.email);
       if (videoUrl) formData.append('video_url', videoUrl);
 

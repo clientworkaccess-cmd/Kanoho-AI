@@ -10,3 +10,4 @@ export const WEBHOOK_GENERAL = 'https://n8n.srv927950.hstgr.cloud/webhook/0ac9a8
 export const WEBHOOK_AUDIO = 'https://n8n.srv927950.hstgr.cloud/webhook/audio-transcript';
 export const WEBHOOK_GITHUB = 'https://n8n.srv927950.hstgr.cloud/webhook/webhook-github';
 export const WEBHOOK_SLACK = 'https://n8n.srv927950.hstgr.cloud/webhook/slack-webhook';
+export const WEBHOOK_DELETE_FILE = 'https://n8n.srv927950.hstgr.cloud/webhook/delete-file-webhook';

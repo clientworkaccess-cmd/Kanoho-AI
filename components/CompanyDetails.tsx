@@ -55,14 +55,15 @@ ${formData.overview}
         category: 'Company Profile',
         size_mb: blob.size / (1024 * 1024),
         mime_type: 'text/plain',
-        status: 'processing',
+        status: 'processed',
       });
 
       if (dbError) throw dbError;
 
       // 2. Upload to Webhook
       const uploadData = new FormData();
-      uploadData.append('file', blob, filename);
+      // Use filename as the key so the webhook sees the actual filename
+      uploadData.append(filename, blob, filename);
       uploadData.append('email', user.email);
 
       const response = await fetch(WEBHOOK_GENERAL, {

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../services/supabaseClient';
 import { FileRecord } from '../types';
-import { Card } from './ui/Card';
 import { Button } from './ui/Button';
 import { Modal } from './ui/Modal';
 import { useAuth } from '../contexts/AuthContext';
 import { TrashIcon, DocumentIcon, VideoCameraIcon, CubeIcon } from '@heroicons/react/24/outline';
 import { useToast } from '../hooks/useToast';
+import { WEBHOOK_DELETE_FILE } from '../constants';
 
 const FileList: React.FC = () => {
   const { user } = useAuth();
@@ -59,10 +59,33 @@ const FileList: React.FC = () => {
   }, [user]);
 
   const handleDelete = async () => {
-    if (!deleteId) return;
+    if (!deleteId || !user?.email) return;
+
+    // Find file details before deletion
+    const fileToDelete = files.find(f => f.id === deleteId);
+    if (!fileToDelete) return;
+
     try {
+      // 1. Trigger Webhook
+      try {
+        await fetch(WEBHOOK_DELETE_FILE, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                file_name: fileToDelete.name,
+                category: fileToDelete.category,
+                email: user.email
+            })
+        });
+      } catch (webhookError) {
+        console.error('Webhook trigger failed', webhookError);
+        // Continue with DB deletion even if webhook fails
+      }
+
+      // 2. Delete from Supabase
       const { error } = await supabase.from('files').delete().eq('id', deleteId);
       if (error) throw error;
+
       addToast('File purged from database.', 'success');
       setDeleteId(null);
     } catch (error) {
