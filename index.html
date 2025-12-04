@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,13 +21,9 @@
             colors: {
               obsidian: '#050505',
               charcoal: '#0F0F11',
-              glass: 'rgba(255, 255, 255, 0.03)',
-              'glass-hover': 'rgba(255, 255, 255, 0.06)',
-              'glass-border': 'rgba(255, 255, 255, 0.08)',
             },
             backgroundImage: {
               'grid-pattern': "linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px)",
-              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
             },
             animation: {
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -45,15 +41,8 @@
     </script>
     <style>
       body {
-        background-color: #050505;
-        color: #e4e4e7;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-      }
-      .bg-grid {
-        background-size: 50px 50px;
-        mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
-        -webkit-mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
       }
       .premium-glass {
         background: rgba(15, 15, 17, 0.6);
@@ -76,10 +65,16 @@
         background: transparent; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #3f3f46; 
+        background: #94a3b8; 
         border-radius: 2px;
       }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #3f3f46;
+      }
       ::-webkit-scrollbar-thumb:hover {
+        background: #64748b; 
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
         background: #52525b; 
       }
     </style>
@@ -97,7 +92,7 @@
 }
 </script>
 </head>
-  <body class="antialiased overflow-hidden selection:bg-indigo-500/30 selection:text-indigo-200">
+  <body class="antialiased overflow-hidden selection:bg-indigo-500/30 selection:text-indigo-600 dark:selection:text-indigo-200">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

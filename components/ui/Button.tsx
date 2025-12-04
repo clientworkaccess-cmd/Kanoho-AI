@@ -12,13 +12,13 @@ export const Button: React.FC<ButtonProps> = ({
   className = '', 
   ...props 
 }) => {
-  const baseStyles = "relative inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black disabled:opacity-50 disabled:cursor-not-allowed font-sans tracking-widest uppercase rounded-lg overflow-hidden";
+  const baseStyles = "relative inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-black disabled:opacity-50 disabled:cursor-not-allowed font-sans tracking-widest uppercase rounded-lg overflow-hidden";
   
   const variants = {
-    primary: "bg-white text-black hover:bg-zinc-200 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]",
-    secondary: "bg-zinc-900/50 text-white border border-white/10 hover:bg-white/5 hover:border-white/20 backdrop-blur-sm",
-    danger: "bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40",
-    ghost: "bg-transparent text-zinc-400 hover:text-white hover:bg-white/5"
+    primary: "bg-slate-900 dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-zinc-200 shadow-lg dark:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-xl dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]",
+    secondary: "bg-white dark:bg-zinc-900/50 text-slate-700 dark:text-white border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5 hover:border-slate-300 dark:hover:border-white/20 backdrop-blur-sm shadow-sm",
+    danger: "bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-500/20 border border-rose-200 dark:border-rose-500/20 hover:border-rose-300 dark:hover:border-rose-500/40",
+    ghost: "bg-transparent text-slate-500 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5"
   };
 
   return (

@@ -9,14 +9,14 @@ interface CardProps {
 
 export const Card: React.FC<CardProps> = ({ children, className = '', title, action }) => {
   return (
-    <div className={`premium-glass-card rounded-xl border border-white/5 shadow-2xl relative overflow-hidden group ${className}`}>
-      {/* Subtle top sheen */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-50"></div>
+    <div className={`bg-white/60 dark:bg-[rgba(10,10,12,0.7)] backdrop-blur-xl rounded-xl border border-slate-200 dark:border-white/5 shadow-lg dark:shadow-2xl relative overflow-hidden group transition-all duration-500 ${className}`}>
+      {/* Subtle top sheen - Dark Mode Only */}
+      <div className="hidden dark:block absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-50"></div>
       
       <div className="p-6 md:p-8 relative z-10">
         {(title || action) && (
-          <div className="flex justify-between items-center mb-6 pb-4 border-b border-white/5">
-            {title && <h3 className="text-lg font-display font-semibold text-white tracking-tight">{title}</h3>}
+          <div className="flex justify-between items-center mb-6 pb-4 border-b border-slate-100 dark:border-white/5">
+            {title && <h3 className="text-lg font-display font-semibold text-slate-900 dark:text-white tracking-tight">{title}</h3>}
             {action && <div>{action}</div>}
           </div>
         )}
