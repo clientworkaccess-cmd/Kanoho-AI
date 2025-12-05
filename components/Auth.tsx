@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { supabase } from '../services/supabaseClient';
 import { Button } from './ui/Button';
 import { Input } from './ui/Input';
@@ -53,10 +53,9 @@ const Auth: React.FC = () => {
         {/* Decorative elements */}
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent"></div>
         <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent"></div>
-        
         <div className="text-center mb-12">
-          <div className="w-12 h-12 bg-white/5 rounded-xl border border-white/10 mx-auto flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-             <div className="w-4 h-4 bg-indigo-500 rounded-sm transform rotate-45"></div>
+          <div className="w-20 h-20 bg-white/5 rounded-xl mx-auto flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+             <img src="https://res.cloudinary.com/djmakoiji/image/upload/v1764949083/image-3-removebg-preview_wkvbbz.png" alt="Kanoho logo" className="w-20 h-20 object-contain"/>
           </div>
           <h1 className="text-3xl font-display font-bold text-white tracking-tight mb-2">KANOHO AI</h1>
           <p className="text-zinc-500 text-[10px] font-mono tracking-[0.2em] uppercase">Enterprise Neural Interface</p>
@@ -74,7 +73,7 @@ const Auth: React.FC = () => {
             />
           )}
           <Input
-            label="Email Identity"
+            label="Email"
             type="email"
             required
             value={email}
@@ -82,7 +81,7 @@ const Auth: React.FC = () => {
             placeholder="agent@kanoho.ai"
           />
           <Input
-            label="Passphrase"
+            label="Password"
             type="password"
             required
             value={password}
@@ -92,7 +91,7 @@ const Auth: React.FC = () => {
 
           <div className="pt-2">
             <Button type="submit" className="w-full" isLoading={loading}>
-              {isLogin ? 'Establish Link' : 'Initialize Protocol'}
+              {isLogin ? 'Login' : 'Signup'}
             </Button>
           </div>
         </form>
@@ -102,7 +101,7 @@ const Auth: React.FC = () => {
             onClick={() => setIsLogin(!isLogin)}
             className="text-[10px] text-zinc-500 hover:text-indigo-400 transition-colors font-mono tracking-widest uppercase"
           >
-            {isLogin ? "Request Clearance Level 1" : "Return to Login Sequence"}
+            {isLogin ? "Don't have an account Signup" : "Return to Login "}
           </button>
         </div>
       </div>
