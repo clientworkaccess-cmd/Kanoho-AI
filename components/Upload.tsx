@@ -70,27 +70,27 @@ const Upload: React.FC = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto space-y-6">
+    <div className="max-w-3xl mx-auto space-y-6 ">
       <div>
-        <h2 className="text-2xl font-display font-bold text-slate-900 dark:text-white tracking-tight">Upload Center</h2>
-        <p className="text-slate-500 dark:text-zinc-500 text-sm">Ingest data into the knowledge base.</p>
+        <h2 className="text-2xl font-display font-bold text-waveDark-600 dark:text-waveLight-500 tracking-tight">Upload Center</h2>
+        <p className="text-waveDark-100 dark:text-waveLight-100 text-sm">Ingest data into the knowledge base.</p>
       </div>
 
       <Card>
-        <div className="flex border-b border-slate-100 dark:border-white/10 mb-6">
+        <div className="flex border-b border-waveDark-300 dark:border-waveLight-800 mb-6">
           {(['document', 'audio', 'transcript'] as UploadTab[]).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-6 py-3 text-sm font-medium font-display tracking-wide uppercase transition-colors relative ${
                 activeTab === tab 
-                  ? 'text-indigo-600 dark:text-white' 
-                  : 'text-slate-500 dark:text-zinc-600 hover:text-slate-900 dark:hover:text-zinc-300'
+                  ? 'text-waveDark-500 dark:text-waveLight-600' 
+                  : 'text-waveDark-500 dark:text-waveLight-600 hover:text-waveDark-600 dark:hover:text-waveLight-700'
               }`}
             >
               {tab}
               {activeTab === tab && (
-                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 dark:bg-indigo-500 shadow-[0_0_10px_#6366f1]"></div>
+                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-700 dark:bg-indigo-500 shadow-[0_0_10px_#6366f1]"></div>
               )}
             </button>
           ))}
@@ -98,7 +98,7 @@ const Upload: React.FC = () => {
 
         {activeTab === 'document' && (
           <form onSubmit={handleGeneralUpload} className="space-y-6">
-             <div className="border border-dashed border-slate-300 dark:border-white/20 bg-slate-50 dark:bg-white/5 p-8 text-center transition-colors hover:bg-slate-100 dark:hover:bg-white/10 hover:border-indigo-500 dark:hover:border-indigo-500/50 rounded-lg">
+             <div className="border border-dashed border-waveDark-300 dark:border-waveLight-800 bg-waveDark-500 dark:bg-waveLight-900 p-8 text-center transition-colors hover:bg-waveDark-400 dark:hover:bg-waveLight-800 rounded-lg">
               <input 
                 type="file" 
                 onChange={(e) => setFile(e.target.files?.[0] || null)}
@@ -107,11 +107,11 @@ const Upload: React.FC = () => {
               />
               <label htmlFor="doc-upload" className="cursor-pointer flex flex-col items-center">
                 {file ? (
-                     <span className="text-indigo-600 dark:text-indigo-400 font-medium font-mono text-sm">{file.name}</span>
+                     <span className="text-waveDark-100 dark:text-waveLight-100 font-medium font-mono text-sm">{file.name}</span>
                 ) : (
                     <>
-                        <span className="text-slate-700 dark:text-white font-medium mb-1">Select Document</span>
-                        <span className="text-slate-500 dark:text-zinc-500 text-xs uppercase tracking-wide">PDF, DOCX, TXT</span>
+                        <span className="text-waveDark-100 dark:text-waveLight-100 font-medium mb-1">Select Document</span>
+                        <span className="text-waveDark-100 dark:text-waveLight-100 text-xs uppercase tracking-wide">PDF, DOCX, TXT</span>
                     </>
                 )}
               </label>
@@ -134,7 +134,7 @@ const Upload: React.FC = () => {
             </div>
 
             <Button type="submit" disabled={!file} isLoading={uploading} className="w-full">
-              Start Ingestion
+              Submit Document
             </Button>
           </form>
         )}

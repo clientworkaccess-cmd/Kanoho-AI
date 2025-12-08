@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React ,{ useState } from 'react';
 import { supabase } from '../services/supabaseClient';
 import { Button } from './ui/Button';
 import { Input } from './ui/Input';
@@ -45,14 +45,14 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center p-4 relative overflow-hidden">
+    <div className="flex min-h-screen items-center justify-center p-4 relative overflow-hidden ">
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 bg-grid bg-[center_top_-1px] [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0.2),transparent)]"></div>
       
-      <div className="w-full max-w-[400px] premium-glass-card p-10 relative overflow-hidden rounded-2xl border-white/10 shadow-2xl animate-float">
+      <div className="w-full max-w-[400px] p-10 relative overflow-hidden rounded-2xl border border-waveDark-600 shadow-2xl animate-float bg-wave-gradient dark:bg-ocean-gradient">
         {/* Decorative elements */}
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent"></div>
-        <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent"></div>
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-waveDark-700 dark:via-waveLight-700 to-transparent"></div>
+        <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-waveDark-700 dark:via-waveLight-700 to-transparent"></div>
         <div className="text-center mb-12">
           <div className="w-20 h-20 bg-white/5 rounded-xl mx-auto flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
              <img src="https://res.cloudinary.com/djmakoiji/image/upload/v1764949083/image-3-removebg-preview_wkvbbz.png" alt="Kanoho logo" className="w-20 h-20 object-contain"/>
@@ -96,14 +96,14 @@ const Auth: React.FC = () => {
           </div>
         </form>
 
-        <div className="mt-8 text-center pt-6 border-t border-white/5">
+        {/* <div className="mt-8 text-center pt-6 border-t border-white/5">
           <button
             onClick={() => setIsLogin(!isLogin)}
             className="text-[10px] text-zinc-500 hover:text-indigo-400 transition-colors font-mono tracking-widest uppercase"
           >
             {isLogin ? "Don't have an account Signup" : "Return to Login "}
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

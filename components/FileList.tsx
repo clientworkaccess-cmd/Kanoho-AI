@@ -89,7 +89,8 @@ const FileList: React.FC = () => {
       const { error } = await supabase.from('files').delete().eq('id', deleteId);
       if (error) throw error;
 
-      addToast('File purged from database.', 'success');
+      addToast('File delete from database.', 'success');
+      fetchFiles()
       setDeleteId(null);
     } catch (error) {
       addToast('Failed to delete file.', 'error');
@@ -106,7 +107,7 @@ const FileList: React.FC = () => {
       case 'processed': 
         return <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] border border-emerald-500/20 font-bold uppercase tracking-wider">Active</span>;
       case 'failed':
-        return <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400 text-[10px] border border-rose-500/20 font-bold uppercase tracking-wider">Error</span>;
+        return <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-red-500/10 text-red-600 dark:text-red-400 text-[10px] border border-red-500/20 font-bold uppercase tracking-wider">Error</span>;
       default:
         return <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-[10px] border border-amber-500/20 font-bold uppercase tracking-wider animate-pulse">Processing</span>;
     }
@@ -116,19 +117,19 @@ const FileList: React.FC = () => {
     <div className="space-y-8">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
-          <h2 className="text-3xl font-display font-bold text-slate-900 dark:text-white tracking-tight">Data Index</h2>
-          <p className="text-slate-500 dark:text-zinc-500 text-sm mt-1">Manage vector embeddings and knowledge assets.</p>
+          <h2 className="text-3xl font-display font-bold text-waveDark-600 dark:text-waveLight-600 tracking-tight">Knowledge Base</h2>
+          <p className="text-waveDark-100 dark:text-waveLight-100 text-sm mt-1">Manage knowledge assets.</p>
         </div>
         <div className="relative w-full md:w-80 group">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-             <CubeIcon className="w-5 h-5 text-slate-400 dark:text-zinc-500 group-focus-within:text-indigo-600 dark:group-focus-within:text-indigo-400 transition-colors" />
+             <CubeIcon className="w-5 h-5 text-slate-400 dark:text-waveLight-100 transition-colors" />
           </div>
           <input
             type="text"
             placeholder="Search Database..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full bg-white dark:bg-zinc-900/50 border border-slate-200 dark:border-white/10 rounded-xl text-sm pl-10 pr-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-500/50 focus:bg-slate-50 dark:focus:bg-zinc-900/80 transition-all font-sans placeholder-slate-400 dark:placeholder-zinc-600 shadow-sm dark:shadow-none"
+            className="w-full bg-waveLight-50 dark:bg-waveDark-400 border border-waveDark-400 dark:border-waveLight-700 rounded-xl text-sm pl-10 pr-4 py-3 text-waveDark-600 dark:text-waveLight-100 focus:outline-none focus:border-waveLight-700 dark:focus:border-waveLight-700/50 transition-all font-sans shadow-sm dark:shadow-none"
           />
         </div>
       </div>
@@ -137,16 +138,16 @@ const FileList: React.FC = () => {
         {loading ? (
             <div className="text-center py-20">
                 <div className="w-8 h-8 border-t-2 border-indigo-500 rounded-full animate-spin mx-auto mb-4"></div>
-                <span className="text-slate-500 dark:text-zinc-600 font-mono text-xs uppercase tracking-widest">Retrieving Assets...</span>
+                <span className="text-waveDark-100 dark:text-zinc-600 font-mono text-xs uppercase tracking-widest">Retrieving Assets...</span>
             </div>
         ) : filteredFiles.length === 0 ? (
-            <div className="bg-white/50 dark:premium-glass-card rounded-xl p-12 text-center border border-slate-200 dark:border-dashed dark:border-zinc-800">
-                <span className="text-slate-500 dark:text-zinc-600 font-mono text-xs uppercase tracking-widest">No Data Found</span>
+            <div className="rounded-xl p-12 text-center border border-waveDark-700 dark:border-dashed dark:border-waveLight-700">
+                <span className="text-waveDark-100 dark:text-zinc-600 font-mono text-xs uppercase tracking-widest">No Data Found</span>
             </div>
         ) : (
           <div className="grid grid-cols-1 gap-3">
              {/* Header Row */}
-             <div className="hidden md:grid grid-cols-12 gap-4 px-6 py-3 text-[10px] font-bold text-slate-500 dark:text-zinc-500 uppercase tracking-widest">
+             <div className="hidden md:grid grid-cols-12 gap-4 px-6 py-3 text-[10px] font-bold text-waveDark-100 dark:text-waveLight-100 uppercase tracking-widest">
                 <div className="col-span-5">Filename</div>
                 <div className="col-span-3">Category</div>
                 <div className="col-span-2">Status</div>
@@ -157,25 +158,25 @@ const FileList: React.FC = () => {
              {filteredFiles.map((file) => (
                 <div 
                   key={file.id} 
-                  className="group relative grid grid-cols-1 md:grid-cols-12 gap-4 items-center p-4 md:px-6 md:py-5 bg-white dark:bg-zinc-900/20 hover:bg-slate-50 dark:hover:bg-white/[0.03] border border-slate-200 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/10 rounded-xl transition-all duration-300 shadow-sm dark:shadow-none"
+                  className="group relative grid grid-cols-1 md:grid-cols-12 gap-4 items-center p-4 md:px-6 md:py-5 hover:bg-waveLight-600 dark:hover:bg-white/[0.03] border border-waveDark-300 dark:border-waveLight-800 hover:border-waveDark-400 dark:hover:border-waveLight-400 rounded-xl transition-all duration-300 shadow-sm dark:shadow-none"
                 >
                     <div className="col-span-12 md:col-span-5 flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-800/50 flex items-center justify-center text-slate-500 dark:text-zinc-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-500/10 transition-colors border border-slate-200 dark:border-white/5">
+                        <div className="w-10 h-10 rounded-lg bg-waveDark-500 dark:bg-waveLight-800 flex items-center justify-center text-waveDark-50 dark:text-waveLite-200 transition-colors border border-waveDark-300 dark:border-waveLight-800">
                             <DocumentIcon className="w-5 h-5" />
                         </div>
                         <div className="min-w-0">
-                            <div className="text-sm font-medium text-slate-900 dark:text-zinc-200 truncate group-hover:text-indigo-600 dark:group-hover:text-white transition-colors font-display tracking-wide">{file.name}</div>
+                            <div className="text-sm font-medium text-waveDark-500 truncate transition-colors font-display tracking-wide">{file.name}</div>
                             {file.video_url && (
-                                <a href={file.video_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[10px] text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 mt-1 uppercase tracking-wide font-bold">
+                                <a href={file.video_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[10px] text-waveDark-500 dark:text-waveLight-700 hover:text-waveDark-600 dark:hover:text-waveLight-800 mt-1 uppercase tracking-wide font-bold">
                                     <VideoCameraIcon className="w-3 h-3" /> Linked Media
                                 </a>
                             )}
-                             <div className="md:hidden text-xs text-slate-500 dark:text-zinc-500 mt-1">{file.category || 'Uncategorized'}</div>
+                             <div className="md:hidden text-xs text-waveDark-100 dark:text-waveLight-100 mt-1">{file.category || 'Uncategorized'}</div>
                         </div>
                     </div>
 
                     <div className="hidden md:block col-span-3">
-                        <span className="px-3 py-1 rounded-md bg-slate-100 dark:bg-zinc-800/50 border border-slate-200 dark:border-white/5 text-xs text-slate-600 dark:text-zinc-400 font-medium">
+                        <span className="px-3 py-1 rounded-md bg-waveDark-500 dark:bg-waveLight-800 border border-waveDark-300 dark:border-waveLight-800 text-xs text-waveDark-50 dark:text-zinc-400 font-medium">
                             {file.category || 'Uncategorized'}
                         </span>
                     </div>
@@ -188,7 +189,7 @@ const FileList: React.FC = () => {
                          <span className="text-[10px] text-slate-400 dark:text-zinc-600 font-mono hidden md:block">{new Date(file.created_at).toLocaleDateString()}</span>
                          <button 
                             onClick={() => setDeleteId(file.id)}
-                            className="p-2 text-slate-400 dark:text-zinc-500 hover:text-rose-600 dark:hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-500/10 rounded-lg transition-all"
+                            className="p-2 text-slate-400 dark:text-waveLight-100 hover:text-red-600 dark:hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-all"
                             title="Delete Asset"
                          >
                             <TrashIcon className="w-4 h-4" />
@@ -201,7 +202,7 @@ const FileList: React.FC = () => {
       </div>
 
       <Modal isOpen={!!deleteId} onClose={() => setDeleteId(null)} title="Confirm Deletion">
-        <p className="text-slate-600 dark:text-zinc-400 mb-6 text-sm leading-relaxed">
+        <p className="text-waveDark-50 dark:text-zinc-400 mb-6 text-sm leading-relaxed">
           Are you sure you want to delete this file? This action will remove it from the vector database and cannot be undone.
         </p>
         <div className="flex justify-end gap-3">

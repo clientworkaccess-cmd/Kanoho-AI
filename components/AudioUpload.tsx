@@ -63,7 +63,7 @@ const AudioUpload: React.FC = () => {
 
   return (
     <form onSubmit={handleUpload} className="space-y-6 mt-6">
-       <div className="border border-dashed border-slate-300 dark:border-white/20 bg-slate-50 dark:bg-white/5 p-8 text-center transition-colors hover:bg-slate-100 dark:hover:bg-white/10 hover:border-indigo-500 dark:hover:border-indigo-500/50 rounded-lg">
+       <div className="border border-dashed border-waveDark-300 dark:border-waveLight-800 bg-waveDark-500 dark:bg-waveLight-900 p-8 text-center transition-colors hover:bg-waveDark-400 dark:hover:bg-waveLight-800 rounded-lg">
         <input 
           type="file" 
           accept="audio/*"
@@ -73,11 +73,11 @@ const AudioUpload: React.FC = () => {
         />
         <label htmlFor="audio-upload" className="cursor-pointer flex flex-col items-center">
             {file ? (
-                 <span className="text-indigo-600 dark:text-indigo-400 font-medium font-mono text-sm">{file.name}</span>
+                 <span className="text-waveDark-100 dark:text-wavelight-100 font-medium font-mono text-sm">{file.name}</span>
             ) : (
                 <>
-                    <span className="text-slate-700 dark:text-white font-medium mb-1">Select Audio File</span>
-                    <span className="text-slate-500 dark:text-zinc-500 text-xs uppercase tracking-wide">MP3, WAV, M4A supported</span>
+                    <span className="text-waveDark-100 dark:text-wavelight-100 font-medium mb-1">Select Audio File</span>
+                    <span className="text-waveDark-100 dark:text-waeLight-100 text-xs uppercase tracking-wide">MP3, WAV, M4A supported</span>
                 </>
             )}
         </label>

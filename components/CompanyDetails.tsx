@@ -91,8 +91,8 @@ ${formData.overview}
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div>
-        <h2 className="text-2xl font-display font-bold text-slate-900 dark:text-white tracking-tight">Company Intelligence</h2>
-        <p className="text-slate-500 dark:text-zinc-500 text-sm">Define the core entity data for the AI context.</p>
+        <h2 className="text-2xl font-display font-bold text-waveDark-600 dark:text-waveLight-500 tracking-tight">Company Profile</h2>
+        <p className="text-waveDark-100 dark:text-waveLight-100 text-sm">Define the core entity data for the AI context.</p>
       </div>
 
       <Card>
@@ -104,6 +104,7 @@ ${formData.overview}
               required 
               value={formData.companyName} 
               onChange={handleChange} 
+              placeholder="Kanoho"
             />
             <Input 
               label="Contact Email" 
@@ -111,6 +112,7 @@ ${formData.overview}
               type="email"
               value={formData.email} 
               onChange={handleChange} 
+              placeholder="example@gmail.com"
             />
             <Input 
               label="Phone Number" 
@@ -118,6 +120,7 @@ ${formData.overview}
               type="tel"
               value={formData.phone} 
               onChange={handleChange} 
+              placeholder="+1 725 432 4433"
             />
             <Input 
               label="Website" 
@@ -125,6 +128,7 @@ ${formData.overview}
               type="url"
               value={formData.website} 
               onChange={handleChange} 
+              placeholder="https://www.example.com"
             />
           </div>
           <Input 
@@ -132,23 +136,24 @@ ${formData.overview}
             name="address"
             value={formData.address} 
             onChange={handleChange} 
+            placeholder="123 Main Street, Springfield, USA"
           />
           
           <div className="space-y-1.5">
-            <label className="block text-xs font-medium text-slate-500 dark:text-zinc-400 font-display tracking-widest uppercase">Business Overview</label>
+            <label className="block text-xs font-medium text-waveDark-100 dark:text-waveLight-100 font-display tracking-widest uppercase">Business Overview</label>
             <textarea
               name="overview"
               value={formData.overview}
               onChange={handleChange}
               rows={6}
-              className="w-full bg-slate-50 dark:bg-zinc-900/30 border border-slate-200 dark:border-zinc-800 text-slate-900 dark:text-zinc-100 px-3 py-2 placeholder-slate-400 dark:placeholder-zinc-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-500/50 transition-colors font-sans text-sm rounded-lg"
+              className="w-full bg-waveDark-500 dark:bg-waveLight-900 border border-waveDark-300 dark:border-waveLight-800 text-waveDark-100 dark:text-waveLight-100 px-3 py-2 focus:outline-none transition-colors font-sans text-sm rounded-lg"
               placeholder="Describe the company mission, products, and services..."
             />
           </div>
 
-          <div className="pt-4 border-t border-slate-100 dark:border-white/5 flex justify-end">
+          <div className="pt-4 border-t border-waveDark-300 dark:border-waveLight-800 flex justify-end">
             <Button type="submit" isLoading={loading}>
-              Save & Index Profile
+              Save Profile
             </Button>
           </div>
         </form>

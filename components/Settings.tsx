@@ -50,25 +50,25 @@ const Settings: React.FC = () => {
   return (
     <div className="max-w-3xl mx-auto space-y-6">
        <div>
-        <h2 className="text-2xl font-display font-bold text-slate-900 dark:text-white tracking-tight">System Configuration</h2>
-        <p className="text-slate-500 dark:text-zinc-500 text-sm">Manage agent access controls and interface preferences.</p>
+        <h2 className="text-2xl font-display font-bold text-waveDark-600 dark:text-waveLight-500 tracking-tight">System Configuration</h2>
+        <p className="text-waveDark-100 dark:text-waveLite-100 text-sm">Manage agent access controls and interface preferences.</p>
       </div>
 
       <Card title="Interface Preferences">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className={`p-2 rounded-lg ${theme === 'dark' ? 'bg-indigo-500/10 text-indigo-400' : 'bg-amber-500/10 text-amber-600'}`}>
+            <div className={`p-2 rounded-lg ${theme === 'dark' ? 'text-waveDark-500' : 'text-waveLight-800'}`}>
               {theme === 'dark' ? <MoonIcon className="w-5 h-5" /> : <SunIcon className="w-5 h-5" />}
             </div>
             <div>
-              <p className="text-sm font-medium text-slate-900 dark:text-white">Interface Theme</p>
-              <p className="text-xs text-slate-500 dark:text-zinc-500">Toggle between light and dark operating modes.</p>
+              <p className="text-sm font-medium text-waveDark-200 dark:text-waveLight-200">Interface Theme</p>
+              <p className="text-xs text-waveDark-100 dark:text-waveLight-100">Toggle between light and dark operating modes.</p>
             </div>
           </div>
           
           <button 
             onClick={toggleTheme}
-            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-50 dark:focus:ring-offset-[#050505] ${theme === 'dark' ? 'bg-indigo-600' : 'bg-slate-200'}`}
+            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-waveDark-500 focus:ring-offset-2 focus:ring-offset-waveDark-50 dark:focus:ring-offset-waveLight-50 ${theme === 'dark' ? 'bg-waveLight-400' : 'bg-waveDark-500'}`}
           >
             <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${theme === 'dark' ? 'translate-x-6' : 'translate-x-1'}`} />
           </button>

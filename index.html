@@ -1,83 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kanoho AI</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%236366f1%22/></svg>">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-              display: ['"Outfit"', 'sans-serif'],
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanoho AI</title>
+  <link rel="icon" type="image"
+    href="https://res.cloudinary.com/djmakoiji/image/upload/v1764949083/image-3-removebg-preview_wkvbbz.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          /* ----------------------------
+             FONTS
+          ---------------------------- */
+          fontFamily: {
+            heading: ['"Outfit"', "sans-serif"],
+            body: ['"Plus Jakarta Sans"', "sans-serif"],
+          },
+          /* ----------------------------
+             COLORS — KANOHO THEME
+          ---------------------------- */
+          colors: {
+            foam: "oklch(0.97 0.010 240)",
+            surface: "oklch(0.20 0.015 220)",
+            surfaceDark: "oklch(0.15 0.015 220)",
+            waveDark: {
+              50: "oklch(0.92 0.015 212.56)",
+              100: "oklch(0.85 0.020 212.56)",
+              200: "oklch(0.75 0.030 212.56)",
+              300: "oklch(0.63 0.040 212.56)",
+              400: "oklch(0.50 0.050 212.56)",
+              500: "oklch(0.3339 0.0574 212.56)",
+              600: "oklch(0.29 0.060 212.56)",
+              700: "oklch(0.23 0.055 212.56)",
+              800: "oklch(0.18 0.050 212.56)",
+              900: "oklch(0.13 0.045 212.56)",
             },
-            colors: {
-              obsidian: '#050505',
-              charcoal: '#0F0F11',
+            waveLight: {
+              50: "oklch(0.95 0.020 208.82)",
+              100: "oklch(0.88 0.025 208.82)",
+              200: "oklch(0.78 0.035 208.82)",
+              300: "oklch(0.68 0.050 208.82)",
+              400: "oklch(0.60 0.060 208.82)",
+              500: "oklch(0.5385 0.0680 208.82)",
+              600: "oklch(0.45 0.070 208.82)",
+              700: "oklch(0.38 0.060 208.82)",
+              800: "oklch(0.30 0.050 208.82)",
+              900: "oklch(0.22 0.040 208.82)",
             },
-            backgroundImage: {
-              'grid-pattern': "linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px)",
+            /* Primary brand colors */
+            primary: "oklch(0.5385 0.0680 208.82)",     /* wave-light-500 */
+            primaryDark: "oklch(0.29 0.060 212.56)", /* wave-dark-600 */
+          },
+          /* ----------------------------
+             BACKGROUND GRADIENTS
+          ---------------------------- */
+          backgroundImage: {
+            "wave-gradient":
+              "linear-gradient(90deg, oklch(0.45 0.070 208.82), oklch(0.50 0.050 212.56))",
+            "ocean-gradient":
+              "linear-gradient(180deg, oklch(0.20 0.015 220), oklch(0.15 0.015 220))",
+            "foam-gradient":
+              "radial-gradient(circle at top, oklch(0.15 0.015 220), transparent 80%)",
+          },
+          /* ----------------------------
+             SHADOWS
+          ---------------------------- */
+          boxShadow: {
+            soft: "0 8px 20px rgba(0,0,0,0.25)",
+            hard: "0 0 40px rgba(0,0,0,0.35)",
+          },
+          /* ----------------------------
+             BORDER RADIUS
+          ---------------------------- */
+          borderRadius: {
+            sm: "6px",
+            md: "12px",
+            lg: "20px",
+            xl: "28px",
+            "2xl": "40px",
+          },
+          /* ----------------------------
+             ANIMATIONS (original kept)
+          ---------------------------- */
+          animation: {
+            "pulse-slow":
+              "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            float: "float 6s ease-in-out infinite",
+          },
+          keyframes: {
+            float: {
+              "0%, 100%": { transform: "translateY(0)" },
+              "50%": { transform: "translateY(-10px)" },
             },
-            animation: {
-              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'float': 'float 6s ease-in-out infinite',
-            },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              }
-            }
-          }
-        }
-      }
-    </script>
-    <style>
-      body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      .premium-glass {
-        background: rgba(15, 15, 17, 0.6);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      }
-      .premium-glass-card {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%), rgba(10, 10, 12, 0.7);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 4px;
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #94a3b8; 
-        border-radius: 2px;
-      }
-      .dark ::-webkit-scrollbar-thumb {
-        background: #3f3f46;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #64748b; 
-      }
-      .dark ::-webkit-scrollbar-thumb:hover {
-        background: #52525b; 
-      }
-    </style>
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .premium-glass {
+      background: rgba(15, 15, 17, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .premium-glass-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%), rgba(10, 10, 12, 0.7);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 2px;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+      background: #3f3f46;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+
+    .dark ::-webkit-scrollbar-thumb:hover {
+      background: #52525b;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -92,8 +168,11 @@
 }
 </script>
 </head>
-  <body class="antialiased overflow-hidden selection:bg-indigo-500/30 selection:text-indigo-600 dark:selection:text-indigo-200">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+
+<body
+  class="antialiased overflow-hidden selection:bg-indigo-500/30 selection:text-indigo-600 dark:selection:text-indigo-200">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>

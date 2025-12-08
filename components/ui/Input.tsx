@@ -8,14 +8,14 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 export const Input: React.FC<InputProps> = ({ label, error, className = '', ...props }) => {
   return (
     <div className="w-full space-y-2">
-      {label && <label className="block text-[10px] font-bold text-slate-500 dark:text-zinc-500 font-display tracking-widest uppercase ml-1">{label}</label>}
+      {label && <label className="block text-[10px] font-bold text-waveDark-100 dark:text-waveLight-100 font-display tracking-widest uppercase ml-1">{label}</label>}
       <div className="relative group">
         <input
-          className={`w-full bg-slate-50 dark:bg-zinc-900/20 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-zinc-100 px-4 py-3 rounded-lg placeholder-slate-400 dark:placeholder-zinc-700 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-500/50 focus:bg-white dark:focus:bg-zinc-900/40 focus:ring-1 focus:ring-indigo-500/20 transition-all duration-300 font-sans text-sm backdrop-blur-sm ${className}`}
+          className={`w-full bg-waveDark-500 dark:bg-waveLight-900 border border-waveDark-300 dark:border-waveLight-800 text-waveDark-100 dark:text-waveLight-100 px-4 py-3 rounded-lg focus:outline-none transition-all duration-300 font-sans text-sm backdrop-blur-sm ${className}`}
           {...props}
         />
       </div>
-      {error && <p className="text-xs text-rose-500 dark:text-rose-400 ml-1">{error}</p>}
+      {error && <p className="text-xs text-red-500 dark:text-red-400 ml-1">{error}</p>}
     </div>
   );
 };

@@ -85,7 +85,7 @@ const TranscriptUpload: React.FC = () => {
           label="Category" 
           value={category} 
           onChange={(e) => setCategory(e.target.value)} 
-          placeholder="Transcript" 
+          placeholder="e.g Policy, Manual" 
         />
       </div>
       
@@ -98,19 +98,19 @@ const TranscriptUpload: React.FC = () => {
       />
 
       <div className="space-y-1.5">
-        <label className="block text-xs font-medium text-slate-500 dark:text-zinc-400 font-display tracking-widest uppercase">Content</label>
+        <label className="block text-xs font-medium text-waveDark-100 dark:text-waveLight-100 tracking-widest uppercase">Content</label>
         <textarea
           required
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={10}
-          className="w-full bg-slate-50 dark:bg-zinc-900/30 border border-slate-200 dark:border-zinc-800 text-slate-900 dark:text-zinc-100 px-3 py-2 placeholder-slate-400 dark:placeholder-zinc-600 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-500/50 transition-colors font-mono text-xs rounded-lg"
+          className="w-full bg-waveDark-500 dark:bg-waveLight-900 border border-waveDark-300 dark:border-waveLight-800 text-waveDark-100 dark:text-waveLight-100 px-3 py-2 focus:outline-none transition-colors font-mono text-xs rounded-lg"
           placeholder="Paste transcript content here..."
         />
       </div>
 
       <Button type="submit" isLoading={uploading} className="w-full">
-        Process Transcript
+        Upload Transcript
       </Button>
     </form>
   );

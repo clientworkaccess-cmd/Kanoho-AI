@@ -20,7 +20,7 @@ const App: React.FC = () => {
             <div className="absolute inset-0 border-t-2 border-indigo-500 rounded-full animate-spin"></div>
             <div className="absolute inset-2 border-r-2 border-violet-500 rounded-full animate-spin reverse"></div>
           </div>
-          <span className="text-slate-400 dark:text-zinc-500 font-mono text-xs tracking-[0.2em] animate-pulse">SYSTEM BOOT</span>
+          <span className="text-slate-400 dark:text-zinc-500 font-mono text-xs tracking-[0.2em] animate-pulse">Kanoho AI</span>
         </div>
       </div>
     );
